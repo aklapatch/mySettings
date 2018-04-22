@@ -1,6 +1,6 @@
 #/bin/sh
 
-files=".vimrc .i3/config"
+files=$(cat files.txt) 
 dir=$(dirname "$0")
 
 for a in $files
