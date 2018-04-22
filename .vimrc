@@ -33,4 +33,4 @@ if &term =~ "xterm"
    	     endif
 
 set autoindent
-set mouse=a
+set mouse=r
