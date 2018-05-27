@@ -1,4 +1,4 @@
-# SLP: Solutions to Linux Problems
+# Solutions to Linux Problems
 
 ## Openbox
 
@@ -25,6 +25,21 @@ Section "Device"
     Identifier "Intel Graphics"
     Driver "intel"
     Option "TearFree" "true"
+    Option  "TripleBuffer" "true"
+    Option  "AccelMethod" "uxa"
 EndSection
 ```
 Login and reboot.
+
+## Touchpad tap to Click
+
+Make a file: /etc/X11/xorg.conf.d/30-touchpad.conf
+
+Paste this in it:
+```
+Section "InputClass"
+    Identifier "devname"
+    Driver "libinput"
+    Option "Tapping" "on"
+EndSection
+```
