@@ -47,3 +47,13 @@ Section "InputClass"
     Option "Tapping" "on"
 EndSection
 ```
+
+# Linux optimizations
+
+## Faster boot time
+
+Disable dkms.servce ModemManager.service and akms.service
+
+Use `systemctl disable service-name.service`
+
+
