@@ -1,4 +1,4 @@
-# Solutions to Linux Problems
+# Linux Usability fixes
 
 ## Openbox
 
@@ -35,7 +35,9 @@ EndSection
 ```
 Login and reboot.
 
-## Touchpad tap to Click
+## Miscellaneous
+
+### Touchpad tap to Click
 
 Make a file: /etc/X11/xorg.conf.d/30-touchpad.conf
 
@@ -50,10 +52,14 @@ EndSection
 
 # Linux optimizations
 
-## Faster boot time
+### Faster boot time
 
 Disable dkms.servce ModemManager.service and akms.service
 
 Use `systemctl disable service-name.service`
 
+### Boot analysis
 
+Display time to load each service `systemd-analyze blame`
+
+Show last boot times and stats `systemd-analyze`
