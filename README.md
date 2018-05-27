@@ -30,3 +30,16 @@ Section "Device"
 EndSection
 ```
 Login and reboot.
+
+## Touchpad tap to Click
+
+Make a file: /etc/X11/xorg.conf.d/30-touchpad.conf
+
+Paste this in it:
+```
+Section "InputClass"
+    Identifier "devname"
+    Driver "libinput"
+    Option "Tapping" "on"
+EndSection
+```
