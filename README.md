@@ -8,6 +8,10 @@ Change `.config/openbox/lxqt-rc.xml`
 
 Run `openbox --reconfigure` to apply settings.
 
+OR 
+
+Download and install Obkey.
+
 ### Screen tearing
 
 Autostart compton (install it first) with the flags --backend glx --paint-on-overlay --vsync opengl-swc
