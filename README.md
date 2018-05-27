@@ -1,4 +1,4 @@
-# SLP: Solutions to Linux Problems
+# Solutions to Linux Problems
 
 ## Openbox
 
@@ -25,6 +25,8 @@ Section "Device"
     Identifier "Intel Graphics"
     Driver "intel"
     Option "TearFree" "true"
+    Option  "TripleBuffer" "true"
+    Option  "AccelMethod" "uxa"
 EndSection
 ```
 Login and reboot.
