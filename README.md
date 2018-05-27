@@ -16,7 +16,7 @@ Download and install Obkey.
 
 Autostart compton (install it first) with the flags --backend glx --paint-on-overlay --vsync opengl-swc
 
-OR (Intel graphics only)
+OR (does not seem to work)
 
 Link here (https://www.pcsuggest.com/fix-linux-screen-tearing/)
 
