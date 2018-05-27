@@ -1,1 +1,1 @@
- .vimrc .xbindkeysrc .bashrc 
+ .vimrc .config/openbox/lxqt-rc.xml
