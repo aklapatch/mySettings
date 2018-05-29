@@ -78,6 +78,12 @@ Maybe disable these (I am less sure these are unecessary))
 
 Use `systemctl disable service-name.service`
 
+Masking (stronger disable) `sudo systemctl mask service-name.service`
+
+Unmasking: reinstall service/package or delete symlink `/lib/systemd/system/service-name.service`
+Then run sudo systemctl `daemon-reload`
+To check is symlink goes to /dev/null sudo file `/lib/systemd/system/service-name.service`
+
 Consider removing `/var/log/journal` or renaming it.
 
 ### Boot analysis
