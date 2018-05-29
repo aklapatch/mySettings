@@ -74,6 +74,7 @@ Maybe disable these (I am less sure these are unecessary))
 + firewalld.service (probably not this one)
 + rtkit-daemon.service (does not slow down that much)
 + systemd-journal-flush.service 
++ fedora-import-state.service
 
 Use `systemctl disable service-name.service`
 
@@ -84,3 +85,5 @@ Display time to load each service `systemd-analyze blame`
 Show last boot times and stats `systemd-analyze`
 
 Plot service load times `systemd-analyze plot > boot.svg`
+
+Show dependencies and delay relationships `systemd-analyze critical-chain`
