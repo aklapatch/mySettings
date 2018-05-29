@@ -54,6 +54,8 @@ EndSection
 
 ### Faster boot time
 
+For me it seems like there is one service holding the others up. Disabling all these only took about 5 seconds off the boot time
+
 Disable these services:
 
 + dkms.servce
@@ -62,6 +64,14 @@ Disable these services:
 + NetworkManager-wait-online.service
 + lvm2-monitor.service
 + fedora-readonly.service
++ livesys-late.service
++ livesys.service
+
+Maybe disable these
+
++ firewalld.service
++ rtkit-daemon.service
++ systemd-journal-flush.service (fedora had this running twice)
 
 Use `systemctl disable service-name.service`
 
