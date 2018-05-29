@@ -56,7 +56,7 @@ EndSection
 
 For me it seems like there is one service holding the others up. Disabling all these only took about 5 seconds off the boot time
 
-Disable these services:
+Disable these services (I am not responsible for you FUBARing your system):
 
 + dkms.servce
 + ModemManager.service
@@ -66,10 +66,12 @@ Disable these services:
 + fedora-readonly.service
 + livesys-late.service
 + livesys.service
++ all plymouth services
++ avahi-daemon.service
 
 Maybe disable these
 
-+ firewalld.service
++ firewalld.service (probably not this one)
 + rtkit-daemon.service
 + systemd-journal-flush.service (fedora had this running twice)
 
