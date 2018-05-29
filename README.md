@@ -56,6 +56,8 @@ EndSection
 
 For me it seems like there is one service holding the others up. Disabling all these only took about 5 seconds off the boot time
 
+Please note that not all these options were tested. Using systemctl to disable things does not mean they will not come up the next boot.
+
 Disable these services (I am not responsible for you FUBARing your system):
 
 + dkms.servce
@@ -75,6 +77,7 @@ MAYBE disable these (I am less sure these are unecessary)
 + rtkit-daemon.service (does not slow down that much)
 + systemd-journal-flush.service
 + fedora-import-state.service
++ gssproxy.service
 
 Use `systemctl disable service-name.service`
 
