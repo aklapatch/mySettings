@@ -69,11 +69,11 @@ Disable these services (I am not responsible for you FUBARing your system):
 + all plymouth services (about 2 secounds off)
 + avahi-daemon.service (took off about 3 secounds)
 
-Maybe disable these (I am less sure these are unecessary)) 
+MAYBE disable these (I am less sure these are unecessary)
 
-+ firewalld.service (probably not this one)
++ firewalld.service (if you do not need dynamic firewall))
 + rtkit-daemon.service (does not slow down that much)
-+ systemd-journal-flush.service 
++ systemd-journal-flush.service
 + fedora-import-state.service
 
 Use `systemctl disable service-name.service`
