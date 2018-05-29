@@ -54,7 +54,7 @@ EndSection
 
 ### Faster boot time
 
-Disable dkms.servce ModemManager.service and akms.service
+Disable dkms.servce ModemManager.service and akms.service and NetworkManager-wait-online.service
 
 Use `systemctl disable service-name.service`
 
