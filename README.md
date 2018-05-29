@@ -61,6 +61,7 @@ Disable these services:
 + akms.service
 + NetworkManager-wait-online.service
 + lvm2-monitor.service
++ fedora-readonly.service
 
 Use `systemctl disable service-name.service`
 
@@ -69,3 +70,5 @@ Use `systemctl disable service-name.service`
 Display time to load each service `systemd-analyze blame`
 
 Show last boot times and stats `systemd-analyze`
+
+Plot service load times `systemd-analyze plot > boot.svg`
