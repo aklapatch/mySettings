@@ -78,6 +78,8 @@ Maybe disable these (I am less sure these are unecessary))
 
 Use `systemctl disable service-name.service`
 
+Consider removing `/var/log/journal` or renaming it.
+
 ### Boot analysis
 
 Display time to load each service `systemd-analyze blame`
