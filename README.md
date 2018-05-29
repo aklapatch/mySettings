@@ -54,7 +54,13 @@ EndSection
 
 ### Faster boot time
 
-Disable dkms.servce ModemManager.service and akms.service and NetworkManager-wait-online.service
+Disable these services:
+
++ dkms.servce
++ ModemManager.service
++ akms.service
++ NetworkManager-wait-online.service
++ lvm2-monitor.service
 
 Use `systemctl disable service-name.service`
 
