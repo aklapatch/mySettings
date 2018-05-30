@@ -70,6 +70,9 @@ Disable these services (I am not responsible for you FUBARing your system):
 + livesys.service
 + all plymouth services (about 2 secounds off)
 + avahi-daemon.service (took off about 3 secounds)
++ dracut-initqueue.service
++ abrtd.service (auto bug reporting)
++ systemd-udev-settle.service (i will mask and see what happens) 
 
 MAYBE disable these (I am less sure these are unecessary)
 
@@ -78,6 +81,20 @@ MAYBE disable these (I am less sure these are unecessary)
 + systemd-journal-flush.service
 + fedora-import-state.service
 + gssproxy.service
++ udisks2.service (does not break system)
+
+Had to mask these 
+
++ plymouth-start.service
++ plymouth-switch-root.service
++ plymouth-quit-wait.service
++ plymouth-read-write.service
++ plymouth-quit.service
++ dracut-shutdown.service
++ dracut-pre-pivot.service 
++ dracut-initqueue.service
+
+#### Disabling Services
 
 Use `systemctl disable service-name.service`
 
