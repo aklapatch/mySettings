@@ -72,7 +72,9 @@ Disable these services (I am not responsible for you FUBARing your system):
 + avahi-daemon.service (took off about 3 secounds)
 + dracut-initqueue.service
 + abrtd.service (auto bug reporting)
-+ systemd-udev-settle.service (i will mask and see what happens) 
++ systemd-udev-settle.service (i will mask and see what happens)
++ auditd.service
++ rsyslog.service
 
 MAYBE disable these (I am less sure these are unecessary)
 
@@ -96,6 +98,8 @@ Had to mask these
 + systemd-udev-settle.service
 + systemd-tmpfiles-setup.service
 + systemd-update-utmp.service
++ gssproxy.service
++ nfs-config.service (network filesystem, took a second off boot)
 
 #### Disabling Services
 
@@ -118,3 +122,9 @@ Show last boot times and stats `systemd-analyze`
 Plot service load times `systemd-analyze plot > boot.svg`
 
 Show dependencies and delay relationships `systemd-analyze critical-chain`
+
+## Miscelaneous 
+
+See if fsck was run `sudo tune2fs -l /dev/sda6 | grep Last\ c`
+
+
