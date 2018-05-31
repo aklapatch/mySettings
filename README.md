@@ -89,6 +89,8 @@ MAYBE disable these (I am less sure these are unecessary)
 
 Had to mask these 
 
++ the systemd-fsck service
++ chronyd.service
 + systemd-udev-settle.service
 + systemd-tmpfiles-setup.service
 + systemd-update-utmp.service
@@ -103,7 +105,11 @@ Use `systemctl disable service-name.service`
 
 Masking (stronger disable) `sudo systemctl mask service-name.service`
 
-Unmasking: reinstall service/package or delete symlink `/lib/systemd/system/service-name.service`
+Unmasking: `sudo systemctl unmask service-name.service`
+
+OR
+
+reinstall service/package or delete symlink `/lib/systemd/system/service-name.service`
 Then run sudo systemctl `daemon-reload`
 To check is symlink goes to /dev/null sudo file `/lib/systemd/system/service-name.service`
 
