@@ -54,7 +54,9 @@ EndSection
 
 ### Faster boot time
 
-For me it seems like there is one service holding the others up. Disabling all these only took about 5 seconds off the boot time
+Disable plymouth boot screen `sudo dnf remove plymouth`
+
+Remove dracut as well `sudo dnf remove dracut` (removes abrtd)
 
 Please note that not all these options were tested. Using systemctl to disable things does not mean they will not come up the next boot.
 
@@ -68,13 +70,13 @@ Disable these services (I am not responsible for you FUBARing your system):
 + fedora-readonly.service
 + livesys-late.service
 + livesys.service
-+ all plymouth services (about 2 secounds off)
 + avahi-daemon.service (took off about 3 secounds)
-+ dracut-initqueue.service
-+ abrtd.service (auto bug reporting)
++ abrtd.service (removed with dracut)
 + systemd-udev-settle.service (i will mask and see what happens)
 + auditd.service
 + rsyslog.service
++ rtkit-daemon.service
++ chronyd.service
 
 MAYBE disable these (I am less sure these are unecessary)
 
@@ -87,19 +89,13 @@ MAYBE disable these (I am less sure these are unecessary)
 
 Had to mask these 
 
-+ plymouth-start.service
-+ plymouth-switch-root.service
-+ plymouth-quit-wait.service
-+ plymouth-read-write.service
-+ plymouth-quit.service
-+ dracut-shutdown.service
-+ dracut-pre-pivot.service 
-+ dracut-initqueue.service
 + systemd-udev-settle.service
 + systemd-tmpfiles-setup.service
 + systemd-update-utmp.service
 + gssproxy.service
 + nfs-config.service (network filesystem, took a second off boot)
++ sys-kernel-debug.mount
++ dnfdaemon.service
 
 #### Disabling Services
 
