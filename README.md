@@ -1,5 +1,17 @@
 # Linux tweaks
 
+## Keybinds
+
+Current binds:
++ Win + a : maximize screen
++ Win + q : close window
++ Win + ] : tile window right
++ Win + [ : tilewindow left
++ Win + m : bring up start menu
++ Win + s : bring up search dialog
++ Win + f : start file manager
++ Win + t : start terminal
+
 ## Openbox
 
 ### Changing keybinds
@@ -11,16 +23,6 @@ Run `openbox --reconfigure` to apply settings.
 OR 
 
 Download and install Obkey.
-
-Current binds:
-+ Win + a : maximize screen
-+ Win + q : close window
-+ Win + ] : tile right
-+ Win + [ : tile left
-+ Win + m : bring up start menu
-+ Win + s : bring up search dialog
-+ Win + f : start file manager
-
 
 ### Screen tearing
 
@@ -72,7 +74,16 @@ Section "InputClass"
         Driver "evdev"
 EndSection
 ```
-and change  `evdev` to `libinput`
+and change it to this
+
+```
+Section "InputClass"
+    	Identifier "evdev touchscreen catchall"
+        MatchIsTouchscreen "on"
+        Driver "evdev"
+	    Option "Ignore" "true"
+EndSection
+```
 
 # Linux optimizations
 
