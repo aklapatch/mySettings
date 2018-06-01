@@ -77,6 +77,7 @@ Disable these services (I am not responsible for you FUBARing your system):
 + rsyslog.service
 + rtkit-daemon.service
 + chronyd.service
++ vmtoolsd.service
 
 MAYBE disable these (I am less sure these are unecessary)
 
@@ -87,11 +88,12 @@ MAYBE disable these (I am less sure these are unecessary)
 + gssproxy.service
 + udisks2.service (does not break system)
 
-Had to mask these 
+Had to mask these (you might not want to disable all these)
 
++ var-lib-nfs-rpc_pipefs.mount (probably will break pipes)
 + the systemd-fsck service
-+ chronyd.service
-+ systemd-udev-settle.service
++ chronyd.service    (time synchro, designed for VM's)
++ systemd-udev-settle.service      (settle for device interfaces)
 + systemd-tmpfiles-setup.service
 + systemd-update-utmp.service
 + gssproxy.service
@@ -128,5 +130,29 @@ Show dependencies and delay relationships `systemd-analyze critical-chain`
 ## Miscelaneous 
 
 See if fsck was run `sudo tune2fs -l /dev/sda6 | grep Last\ c`
+
+List loaded services `systemctl list-unit-files | grep enabled`
+
+Get rid of old kernels. `dnf remove $(dnf repoquery --installonly --latest-limit 2 -q)`
+
+The number is the number of kernels that should be left.
+
+OR
+
+Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
+
+#### Disable touch screen on boot
+
+find this section in `/usr/share/X11/xorg.conf.d/10-evdev.conf` 
+
+```
+Section "InputClass"
+        Identifier "evdev touchscreen catchall"
+        MatchIsTouchscreen "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "evdev"
+EndSection
+```
+and change  `evdev` to `libinput`
 
 
