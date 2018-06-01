@@ -6,7 +6,7 @@
 + Audio editing : Audacity
 + light code editor : vim
 + mingw-w64-gcc or clang for cross-compilation
-
++ wine : run windows programs
 
 # Linux tweaks
 ## Keybinds
