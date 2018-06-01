@@ -1,4 +1,4 @@
-# Linux Usability fixes
+# Linux tweaks
 
 ## Openbox
 
@@ -11,6 +11,16 @@ Run `openbox --reconfigure` to apply settings.
 OR 
 
 Download and install Obkey.
+
+Current binds:
++ Win + a : maximize screen
++ Win + q : close window
++ Win + ] : tile right
++ Win + [ : tile left
++ Win + m : bring up start menu
++ Win + s : bring up search dialog
++ Win + f : start file manager
+
 
 ### Screen tearing
 
@@ -35,7 +45,7 @@ EndSection
 ```
 Login and reboot.
 
-## Miscellaneous
+## Input
 
 ### Touchpad tap to Click
 
@@ -50,17 +60,81 @@ Section "InputClass"
 EndSection
 ```
 
+### Disable touch screen on boot
+
+find this section in `/usr/share/X11/xorg.conf.d/10-evdev.conf` 
+
+```
+Section "InputClass"
+        Identifier "evdev touchscreen catchall"
+        MatchIsTouchscreen "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "evdev"
+EndSection
+```
+and change  `evdev` to `libinput`
+
 # Linux optimizations
 
-### Faster boot time
+### Lower boot time
+
+Disable services on startup. The fedora section has my personal list
+
+## Useful Commands/tools
+
+See if fsck was run `sudo tune2fs -l /dev/sda6 | grep Last\ c`
+
+List loaded services `systemctl list-unit-files | grep enabled`
+
+### Disabling Services
+
+Use `systemctl disable service-name.service`
+
+Masking (stronger disable) `sudo systemctl mask service-name.service`
+
+### Enabling services
+
+Enable: `sudo systemctl enable service-name.service` 
+
+Unmasking: `sudo systemctl unmask service-name.service`
+
+OR
+
+reinstall service/package or delete symlink `/lib/systemd/system/service-name.service`
+Then run sudo systemctl `daemon-reload`
+To check is symlink goes to /dev/null sudo file `/lib/systemd/system/service-name.service`
+
+### Boot analysis
+
+Display time to load each service `systemd-analyze blame`
+
+Show last boot times and stats `systemd-analyze`
+
+Plot service load times `systemd-analyze plot > boot.svg`
+
+Show dependencies and delay relationships `systemd-analyze critical-chain`
+
+## Fedora-specific tweaks
+
+Get rid of old kernels. `dnf remove $(dnf repoquery --installonly --latest-limit 2 -q)`
+
+The number is the number of kernels that should be left.
+
+OR
+
+Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
+
+### Boot time reduction (Fedora-specific)
+
+Consider removing `/var/log/journal` or renaming it.
 
 Disable plymouth boot screen `sudo dnf remove plymouth`
 
 Remove dracut as well `sudo dnf remove dracut` (removes abrtd)
 
-Please note that not all these options were tested. Using systemctl to disable things does not mean they will not come up the next boot.
+Please note that not all these options were tested.
 
-Disable these services (I am not responsible for you FUBARing your system):
+Services I disabled (I am not responsible for you FUBARing your system):
 
 + dkms.servce
 + ModemManager.service
@@ -75,84 +149,26 @@ Disable these services (I am not responsible for you FUBARing your system):
 + systemd-udev-settle.service (i will mask and see what happens)
 + auditd.service
 + rsyslog.service
-+ rtkit-daemon.service
 + chronyd.service
 + vmtoolsd.service
 
-MAYBE disable these (I am less sure these are unecessary)
+Services you might not want to disable (but I did anyway)
 
-+ firewalld.service (if you do not need dynamic firewall))
-+ rtkit-daemon.service (does not slow down that much)
++ firewalld.service (dynamic firewall))
++ rtkit-daemon.service (not much benefit disabling)
 + systemd-journal-flush.service
 + fedora-import-state.service
-+ gssproxy.service
-+ udisks2.service (does not break system)
++ gssproxy.service  (security?)
++ udisks2.service (still runs even if you mask it)
 
-Had to mask these (you might not want to disable all these)
+Services I had to mask
 
 + var-lib-nfs-rpc_pipefs.mount (probably will break pipes)
-+ the systemd-fsck service
++ the systemd-fsck service  (still runs even when masked)
 + chronyd.service    (time synchro, designed for VM's)
-+ systemd-udev-settle.service      (settle for device interfaces)
-+ systemd-tmpfiles-setup.service
-+ systemd-update-utmp.service
++ systemd-tmpfiles-setup.service (does not stay masked)
++ systemd-update-utmp.service (does not stay masked)
 + gssproxy.service
 + nfs-config.service (network filesystem, took a second off boot)
 + sys-kernel-debug.mount
-+ dnfdaemon.service
-
-#### Disabling Services
-
-Use `systemctl disable service-name.service`
-
-Masking (stronger disable) `sudo systemctl mask service-name.service`
-
-Unmasking: `sudo systemctl unmask service-name.service`
-
-OR
-
-reinstall service/package or delete symlink `/lib/systemd/system/service-name.service`
-Then run sudo systemctl `daemon-reload`
-To check is symlink goes to /dev/null sudo file `/lib/systemd/system/service-name.service`
-
-Consider removing `/var/log/journal` or renaming it.
-
-### Boot analysis
-
-Display time to load each service `systemd-analyze blame`
-
-Show last boot times and stats `systemd-analyze`
-
-Plot service load times `systemd-analyze plot > boot.svg`
-
-Show dependencies and delay relationships `systemd-analyze critical-chain`
-
-## Miscelaneous 
-
-See if fsck was run `sudo tune2fs -l /dev/sda6 | grep Last\ c`
-
-List loaded services `systemctl list-unit-files | grep enabled`
-
-Get rid of old kernels. `dnf remove $(dnf repoquery --installonly --latest-limit 2 -q)`
-
-The number is the number of kernels that should be left.
-
-OR
-
-Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
-
-#### Disable touch screen on boot
-
-find this section in `/usr/share/X11/xorg.conf.d/10-evdev.conf` 
-
-```
-Section "InputClass"
-        Identifier "evdev touchscreen catchall"
-        MatchIsTouchscreen "on"
-        MatchDevicePath "/dev/input/event*"
-        Driver "evdev"
-EndSection
-```
-and change  `evdev` to `libinput`
-
-
++ dnfdaemon.service  (dnf autostart)
