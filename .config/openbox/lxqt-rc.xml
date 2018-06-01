@@ -188,6 +188,9 @@
     <keybind key="C-A-Left">
       <action name="GoToDesktop"/>
     </keybind>
+    <keybind key="W-a">
+      <action name="ToggleMaximizeFull"/>
+    </keybind>
     <keybind key="C-A-Right">
       <action name="GoToDesktop"/>
     </keybind>
