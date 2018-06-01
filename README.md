@@ -1,8 +1,13 @@
+# Preferred programs
++ IDE : Codelite or Qt Creator
++ Medium code editor : Visual Studio Code
++ Photo editing : Gimp
++ Video editing : Shotcut
++ Audio editing : Audacity
++ light code editor : vim
+
 # Linux tweaks
-
 ## Keybinds
-
-Current binds:
 + Win + a : maximize screen
 + Win + q : close window
 + Win + ] : tile window right
@@ -81,7 +86,7 @@ Section "InputClass"
     	Identifier "evdev touchscreen catchall"
         MatchIsTouchscreen "on"
         Driver "evdev"
-	    Option "Ignore" "true"
+	Option "Ignore" "true"
 EndSection
 ```
 
