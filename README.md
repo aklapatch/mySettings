@@ -1,10 +1,12 @@
-# Preferred programs
+# Programs
 + IDE : Codelite or Qt Creator
 + Medium code editor : Visual Studio Code
 + Photo editing : Gimp
 + Video editing : Shotcut
 + Audio editing : Audacity
 + light code editor : vim
++ mingw-w64-gcc or clang for cross-compilation
+
 
 # Linux tweaks
 ## Keybinds
