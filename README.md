@@ -98,6 +98,13 @@ EndSection
 
 Disable services on startup. The fedora section has my personal list
 
+### Speed up shutdown
+
+Change these settings in `/etc/systemd/system.conf`
+```
+DefaultTimeoutStartSec=10s
+DefaultTimeoutStopSec=10s
+```
 ## Useful Commands/tools
 
 See if fsck was run `sudo tune2fs -l /dev/sda6 | grep Last\ c`
