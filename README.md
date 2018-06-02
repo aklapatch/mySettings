@@ -162,13 +162,13 @@ Services I disabled (I am not responsible for you FUBARing your system):
 + rsyslog.service
 + chronyd.service
 + vmtoolsd.service
++ dmraid-activation.service
 
-Services you might not want to disable (but I did anyway)
+Services you might not want to disable/mask (but I did anyway)
 
 + firewalld.service (dynamic firewall))
 + rtkit-daemon.service (not much benefit disabling)
 + systemd-journal-flush.service
-+ fedora-import-state.service
 + gssproxy.service  (security?)
 + udisks2.service (still runs even if you mask it)
 
@@ -183,3 +183,4 @@ Services I had to mask
 + nfs-config.service (network filesystem, took a second off boot)
 + sys-kernel-debug.mount
 + dnfdaemon.service  (dnf autostart)
++ udisks2.service
