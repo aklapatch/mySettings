@@ -184,7 +184,7 @@ Services you might not want to disable/mask (but I did anyway)
 + rtkit-daemon.service (not much benefit disabling)
 + systemd-journal-flush.service
 + gssproxy.service  (security?)
-+ udisks2.service (still runs even if you mask it)
++ udisks2.service (disk automounting)
 
 Services I had to mask
 
