@@ -49,7 +49,7 @@ Section "Device"
     Driver "intel"
     Option "TearFree" "true"
     Option  "TripleBuffer" "true"
-    Option  "AccelMethod" "uxa"
+    Option  "AccelMethod" "sna"
 EndSection
 ```
 Login and reboot.
