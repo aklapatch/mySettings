@@ -184,7 +184,8 @@ Services you might not want to disable/mask (but I did anyway)
 + rtkit-daemon.service (not much benefit disabling)
 + systemd-journal-flush.service
 + gssproxy.service  (security?)
-+ udisks2.service (disk automounting)
++ udisks2.service (external drive automounting)
++ systemd-rfkill.service (disabling radios)
 
 Services I had to mask
 
@@ -198,3 +199,4 @@ Services I had to mask
 + sys-kernel-debug.mount
 + dnfdaemon.service  (dnf autostart)
 + udisks2.service
++ systemd-rfkill.service
