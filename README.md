@@ -170,6 +170,8 @@ Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
 ### Boot time reduction (Fedora-specific)
 
+Run: `sudo dnf install preload` and then `sudo systemctl enable preload`
+
 Consider removing `/var/log/journal` or renaming it.
 
 Disable plymouth boot screen `sudo dnf remove plymouth`
