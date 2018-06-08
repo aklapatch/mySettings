@@ -54,6 +54,10 @@ EndSection
 ```
 Login and reboot.
 
+## Changing gtk themes on LXQt
+
+Install lxappearance and use it. (lightest option I found that works)
+
 ## Input
 
 ### Touchpad tap to Click
