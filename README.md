@@ -113,6 +113,17 @@ The bracketed option is the current scheduler.
 To change the scheduler, use `su` to get superuser status.
 Then do: `echo scheduler-name > /sys/block/sda/queue/scheduler`
 
+#### Permanently change scheduler
+
+Create udev rule in `/etc/udev/rules.d/60-ioschedulers.rules` and paste in this in that file:
+```
+#set scheduler for non-rotating disks
+ACTION=="add|change", KERNEL=="sd[a-z]|mmcblk[0-9]*|nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
+# set scheduler for rotating disks
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="deadline"
+```
+For my laptop, the deadline scheduler seems to reach the graphical target the fastest. The CFQ scheduler would be better for priority sorting.
+
 ## Useful Commands/tools
 
 See if fsck was run `sudo tune2fs -l /dev/sda6 | grep Last\ c`
@@ -191,9 +202,11 @@ Services you might not want to disable/mask (but I did anyway)
 + firewalld.service (dynamic firewall))
 + rtkit-daemon.service (not much benefit disabling)
 + systemd-journal-flush.service
-+ gssproxy.service  (security?)
++ gssproxy.service  (security?, can be uninstalled)
 + udisks2.service (external drive automounting)
 + systemd-rfkill.service (disabling radios)
++ systemd-modules-load.service (it was failing anyway)
++ mlocate-updatedb.service (you can remove by removing mlocate package)
 
 Services I had to mask
 
