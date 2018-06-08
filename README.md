@@ -105,6 +105,14 @@ Change these settings in `/etc/systemd/system.conf`
 DefaultTimeoutStartSec=10s
 DefaultTimeoutStopSec=10s
 ```
+### Change I/O scheduler
+
+To see the sceduler (for /dev/sda): `cat /sys/block/sda/queue/scheduler`
+The bracketed option is the current scheduler.
+
+To change the scheduler, use `su` to get superuser status.
+Then do: `echo scheduler-name > /sys/block/sda/queue/scheduler`
+
 ## Useful Commands/tools
 
 See if fsck was run `sudo tune2fs -l /dev/sda6 | grep Last\ c`
