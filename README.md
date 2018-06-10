@@ -174,8 +174,6 @@ Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
 ### Boot time reduction (Fedora-specific)
 
-Run: `sudo dnf install preload` and then `sudo systemctl enable preload`
-
 Consider removing `/var/log/journal` or renaming it.
 
 Disable plymouth boot screen `sudo dnf remove plymouth`
@@ -204,7 +202,7 @@ Services I disabled (I am not responsible for you FUBARing your system):
 + dmraid-activation.service
 
 Services you might not want to disable/mask (but I did anyway)
-
+(
 + firewalld.service (dynamic firewall))
 + rtkit-daemon.service (not much benefit disabling)
 + systemd-journal-flush.service
@@ -227,3 +225,9 @@ Services I had to mask
 + dnfdaemon.service  (dnf autostart)
 + udisks2.service
 + systemd-rfkill.service
+
+### Arch Specific
+
+Mask:
+
+lvm2-monitor.service
