@@ -1,12 +1,27 @@
-# Programs
-+ IDE : Codelite or Qt Creator
-+ Medium code editor : Visual Studio Code
+# Programs to install
+
++ codeblocks
++ Visual Studio Code
++ clang
++ base-devel
++ git
++ subversion
++ python (both of them)
++ lldb
++ gdb
++ lld
++ vim
++ wine
++ mingw-w64-gcc
++ ninja
++ cmake 
++ firefox
+
+##### Not as crucial
+
 + Photo editing : Gimp
 + Video editing : Shotcut
 + Audio editing : Audacity
-+ light code editor : vim
-+ mingw-w64-gcc or clang for cross-compilation
-+ wine : run windows programs
 
 # Linux tweaks
 ## Keybinds
