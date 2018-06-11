@@ -217,8 +217,8 @@ Services I disabled (I am not responsible for you FUBARing your system):
 + dmraid-activation.service
 
 Services you might not want to disable/mask (but I did anyway)
-(
-+ firewalld.service (dynamic firewall))
+
++ firewalld.service (dynamic firewall)
 + rtkit-daemon.service (not much benefit disabling)
 + systemd-journal-flush.service
 + gssproxy.service  (security?, can be uninstalled)
@@ -241,8 +241,14 @@ Services I had to mask
 + udisks2.service
 + systemd-rfkill.service
 
-### Arch Specific
+### Arch Specific 
 
-Mask:
+Change makepkg flags (especially MAKEFLAGS) in `/etc/makepkg.conf`
 
-lvm2-monitor.service
+Masked for boot:
+
++ lvm2-monitor.service
+
+Disabled for boot:
+
++ ModemManager.service
