@@ -26,7 +26,7 @@ order += "disk /"
 #order += "wireless wlp4s0"
 #order += "ethernet enp5s0"
 order += "battery 0"
-order += "cpu_temperature 0"
+#order += "cpu_temperature 0"
 order += "cpu_usage 0"
 #order += "load"
 order += "tztime local"
@@ -50,10 +50,10 @@ battery 0 {
     low_threshold = 11
     threshold_type = percentage
     hide_seconds = true
-    status_chr = "chr "
+    status_chr = "CHR"
     status_bat = "BAT"
-    status_unk = "dr "
-    status_full = "full"
+    status_unk = "DR"
+    status_full = "FUL"
 }
 
 run_watch DHCP {

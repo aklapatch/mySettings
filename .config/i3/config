@@ -213,6 +213,10 @@ bindsym XF86AudioStop exec mocp --togle-pause
 bindsym XF86AudioNext exec mocp --next
 bindsym XF86AudioPrev exec mocp --previous
 
+# Backlight controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
 bindsym $mod+F5 exec mocp --toggle-pause
 bindsym $mod+F6 exec mocp --stop
 bindsym $mod+F7 exec mocp --previous
