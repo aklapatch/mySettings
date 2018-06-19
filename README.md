@@ -69,6 +69,10 @@ EndSection
 ```
 Login and reboot.
 
+## File Open dialog is too big
+
+Change the `GeometryWidth` and `Geom:etryHeight` entries in `.config/gtk-2.0/gtkfilechooser.ini`
+
 ## Changing gtk themes on LXQt
 
 Install lxappearance and use it. (lightest option I found that works)
@@ -77,7 +81,7 @@ Install lxappearance and use it. (lightest option I found that works)
 
 ### Touchpad tap to Click
 
-Make a file: /etc/X11/xorg.conf.d/30-touchpad.conf
+Make a file: `/etc/X11/xorg.conf.d/30-touchpad.conf`
 
 Paste this in it:
 ```
