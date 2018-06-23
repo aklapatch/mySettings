@@ -136,6 +136,10 @@ The bracketed option is the current scheduler.
 To change the scheduler, use `su` to get superuser status.
 Then do: `echo scheduler-name > /sys/block/sda/queue/scheduler`
 
+#### Change Scheduler permanently
+
+Add a `elevator=schedulername` entry to the `GRUB_CMDLINE_LINUX_DEFAULT=` line.
+
 #### Permanently change scheduler
 
 Create udev rule in `/etc/udev/rules.d/60-ioschedulers.rules` and paste in this in that file:
