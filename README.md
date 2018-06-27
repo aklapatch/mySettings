@@ -1,6 +1,7 @@
 # Programs to install
 
 + codeblocks
++ geany
 + Visual Studio Code
 + clang
 + base-devel
@@ -115,6 +116,10 @@ Section "InputClass"
 EndSection
 ```
 
+### makepkg flags/settings (arch-specific)
+
+Go to `/etc/makepkg.conf` and change `makeflags` to `-j4` and C and CXX flags to `-march=native` and `-mtune=native` 
+
 # Linux optimizations
 
 ### Lower boot time
@@ -142,7 +147,7 @@ Add a `elevator=schedulername` entry to the `GRUB_CMDLINE_LINUX_DEFAULT=` line.
 
 #### Permanently change scheduler
 
-Create udev rule in `/etc/udev/rules.d/60-ioschedulers.rules` and paste in this in that file:
+Create udev rule in `/etc/udev/rules.d/60-schedulers.rules` and paste in this in that file:
 ```
 #set scheduler for non-rotating disks
 ACTION=="add|change", KERNEL=="sd[a-z]|mmcblk[0-9]*|nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
