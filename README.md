@@ -141,6 +141,10 @@ The bracketed option is the current scheduler.
 To change the scheduler, use `su` to get superuser status.
 Then do: `echo scheduler-name > /sys/block/sda/queue/scheduler`
 
+#### Enable multi-queue schedulers
+
+Add `GRUB_CMDLINE_LINUX="scsi_mod.use_blk_mq=1"` to `/etc/default/grub` and do `sudo grub-mkconfig -o /boot/grub/grub.cfg` or `sudo update-grub`.
+
 #### Change Scheduler permanently
 
 Add a `elevator=schedulername` entry to the `GRUB_CMDLINE_LINUX_DEFAULT=` line.
@@ -152,9 +156,8 @@ Create udev rule in `/etc/udev/rules.d/60-schedulers.rules` and paste in this in
 #set scheduler for non-rotating disks
 ACTION=="add|change", KERNEL=="sd[a-z]|mmcblk[0-9]*|nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
 # set scheduler for rotating disks
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="deadline"
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
 ```
-For my laptop, the deadline scheduler seems to reach the graphical target the fastest. The CFQ scheduler would be better for priority sorting.
 
 ## Useful Commands/tools
 
