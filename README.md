@@ -1,6 +1,6 @@
 # Programs to install
 
-+ codeblocks
++ eclipse
 + geany
 + Visual Studio Code
 + clang
