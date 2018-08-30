@@ -212,6 +212,14 @@ Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
 `sudo dnf install broadcom-wl`
 
+### Install google chrome
+
+`sudo dnf install fedora-workstation-repositories`
+
+`sudo dnf config-manager --set-enabled google-chrome`
+
+`sudo dnf install google-chrome-stable`
+
 ### Boot time reduction (Fedora-specific)
 
 Consider removing `/var/log/journal` or renaming it.
