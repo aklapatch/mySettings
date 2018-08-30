@@ -204,17 +204,19 @@ OR
 
 Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
-### Install broadcom-wl (Fedora 27) 
+### Install broadcom-wl (Fedora 27/28) 
 
-`sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
+`sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
+
+`sudo dnf update`
+
+`sudo dnf install kmod-wl`
 
 ### Boot time reduction (Fedora-specific)
 
 Consider removing `/var/log/journal` or renaming it.
 
 Disable plymouth boot screen `sudo dnf remove plymouth`
-
-Remove dracut as well `sudo dnf remove dracut` (removes abrtd)
 
 Please note that not all these options were tested.
 
@@ -228,14 +230,6 @@ Services I disabled (I am not responsible for you FUBARing your system):
 + fedora-readonly.service
 + livesys-late.service
 + livesys.service
-+ avahi-daemon.service (took off about 3 secounds)
-+ abrtd.service (removed with dracut)
-+ systemd-udev-settle.service (i will mask and see what happens)
-+ auditd.service
-+ rsyslog.service
-+ chronyd.service
-+ vmtoolsd.service
-+ dmraid-activation.service
 
 Services you might not want to disable/mask (but I did anyway)
 
@@ -248,19 +242,6 @@ Services you might not want to disable/mask (but I did anyway)
 + systemd-modules-load.service (it was failing anyway)
 + mlocate-updatedb.service (you can remove by removing mlocate package)
 
-Services I had to mask
-
-+ var-lib-nfs-rpc_pipefs.mount (probably will break pipes)
-+ the systemd-fsck service  (still runs even when masked)
-+ chronyd.service    (time synchro, designed for VM's)
-+ systemd-tmpfiles-setup.service (does not stay masked)
-+ systemd-update-utmp.service (does not stay masked)
-+ gssproxy.service
-+ nfs-config.service (network filesystem, took a second off boot)
-+ sys-kernel-debug.mount
-+ dnfdaemon.service  (dnf autostart)
-+ udisks2.service
-+ systemd-rfkill.service
 
 ### Arch Specific 
 
