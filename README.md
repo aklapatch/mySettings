@@ -210,7 +210,7 @@ Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
 `sudo dnf update`
 
-`sudo dnf install kmod-wl`
+`sudo dnf install broadcom-wl`
 
 ### Boot time reduction (Fedora-specific)
 
