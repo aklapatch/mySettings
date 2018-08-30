@@ -206,7 +206,17 @@ Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
 ### Set up qemu-kvm
 
-Install libvirt qemu-kvm and virt-manager
+Install libvirt qemu-kvm and virt-manager 
+
+Start the libvirtd service and enable it.
+
+Use virt-manager to make the machine.
+
+Add `intel_iommu=on` to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`.
+
+Update grub (fedora) `grub2-mkconfig -o /boot/grub2/grub.cfg`
+
+Add a PCI device in virt-manager.
 
 ### Install broadcom-wl (Fedora 27/28) 
 
