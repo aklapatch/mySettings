@@ -212,6 +212,12 @@ Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
 `sudo dnf install broadcom-wl`
 
+### Install rawhide package
+
+`sudo dnf install fedora-repos-rawhide`
+
+`sudo dnf  install --enablerepo rawhide`
+
 ### Install google chrome
 
 `sudo dnf install fedora-workstation-repositories`
