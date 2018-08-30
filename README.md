@@ -204,6 +204,10 @@ OR
 
 Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
+### Set up qemu-kvm
+
+Install libvirt qemu-kvm and virt-manager
+
 ### Install broadcom-wl (Fedora 27/28) 
 
 `sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
