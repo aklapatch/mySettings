@@ -204,6 +204,10 @@ OR
 
 Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
+### Install broadcom-wl (Fedora 27) 
+
+`sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
+
 ### Boot time reduction (Fedora-specific)
 
 Consider removing `/var/log/journal` or renaming it.
