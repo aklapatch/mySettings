@@ -218,6 +218,10 @@ Set kernel limit in `/etc/dnf/dnf.conf` as such `installonly_limit=2`
 
 `sudo dnf  install --enablerepo rawhide`
 
+#### Upgrade from rawhide
+
+`sudo dnf --enablerepo rawhide upgrade package-name`
+
 ### Install google chrome
 
 `sudo dnf install fedora-workstation-repositories`
