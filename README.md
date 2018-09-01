@@ -143,7 +143,7 @@ Then do: `echo scheduler-name > /sys/block/sda/queue/scheduler`
 
 #### Enable multi-queue schedulers
 
-Add `GRUB_CMDLINE_LINUX="scsi_mod.use_blk_mq=1"` to `/etc/default/grub` and do `sudo grub-mkconfig -o /boot/grub/grub.cfg` or `sudo update-grub`.
+Add `GRUB_CMDLINE_LINUX="scsi_mod.use_blk_mq=1"` to `/etc/default/grub` and do `sudo grub-mkconfig -o /boot/grub/grub.cfg` or `sudo update-grub` or `sudo grub2-mkconfig -o /boot/grub2/grub.cfg`.
 
 #### Change Scheduler permanently
 
