@@ -25,15 +25,6 @@
 + Audio editing : Audacity
 
 # Linux tweaks
-## Keybinds
-+ Win + a : maximize screen
-+ Win + q : close window
-+ Win + ] : tile window right
-+ Win + [ : tilewindow left
-+ Win + m : bring up start menu
-+ Win + s : bring up search dialog
-+ Win + f : start file manager
-+ Win + t : start terminal
 
 ## Openbox
 
@@ -49,26 +40,7 @@ Download and install Obkey.
 
 ### Screen tearing
 
-Autostart compton (install it first) with the flags --backend glx --paint-on-overlay --vsync opengl-swc
-
-OR (does not seem to work)
-
-Link here (https://www.pcsuggest.com/fix-linux-screen-tearing/)
-
-Create this file `/etc/X11/xorg.conf.d/20-intel.conf`
-
-Save the following in that file.
-
-```
-Section "Device"
-    Identifier "Intel Graphics"
-    Driver "intel"
-    Option "TearFree" "true"
-    Option  "TripleBuffer" "true"
-    Option  "AccelMethod" "sna"
-EndSection
-```
-Login and reboot.
+Autostart compton (install it first) with the flags `--backend glx --paint-on-overlay --vsync opengl-swc`
 
 ## File Open dialog is too big
 
