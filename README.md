@@ -53,6 +53,13 @@
 + Video editing : Shotcut
 + Audio editing : Audacity
 
+# Firefox
+
+go to  `about:config` and set
+`browser.link.open_newwindow` = 3
+and `browser.link.open_newwindow.restriction` = 0
+
+
 # Linux tweaks
 
 ## Openbox
