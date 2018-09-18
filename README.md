@@ -58,7 +58,7 @@
 go to  `about:config` and set
 `browser.link.open_newwindow` = 3
 and `browser.link.open_newwindow.restriction` = 0
-
+and set `services.sync.prefs.X` with X as the service name to sync that setting.
 
 # Linux tweaks
 
