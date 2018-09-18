@@ -2,6 +2,8 @@
 
 ## Windows (chocolatey)
 
++ clamwin antivirus
++ malwarebytes
 + eclipse
 + Visual Studio Code
 + git
