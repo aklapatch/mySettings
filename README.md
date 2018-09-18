@@ -23,6 +23,7 @@
 + vim (usually installed)
 + ninja
 + cmake
++ cppcheck
 
 ## Linux
 
@@ -35,6 +36,7 @@
 + subversion
 + lldb
 + gdb
++ cppcheck
 + wine
 + rust?
 + lld
