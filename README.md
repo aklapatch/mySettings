@@ -8,6 +8,7 @@
 + subversion
 + chrome
 + firefox
++ notepad++
 
 ## MSYS2
 
