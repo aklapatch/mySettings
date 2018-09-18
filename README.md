@@ -2,7 +2,7 @@
 
 ## Windows (chocolatey)
 
-+ clamwin antivirus
++ 360 total security (360ts for chocolatey)
 + malwarebytes
 + eclipse
 + Visual Studio Code
