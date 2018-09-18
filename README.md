@@ -1,8 +1,17 @@
 # Programs to install
 
+## Windows (chocolatey)
+
 + eclipse
-+ geany
 + Visual Studio Code
++ git
++ subversion
++ chrome
++ firefox
+
+## MSYS2
+
++ geany and geany plugins
 + clang
 + base-devel
 + git
@@ -11,12 +20,27 @@
 + lldb
 + gdb
 + lld
-+ vim
-+ wine
-+ mingw-w64-gcc
++ vim (usually installed)
 + ninja
-+ cmake 
-+ firefox
++ cmake
+
+## Linux
+
++ eclipse
++ visual studion code
++ geany and geany plugins
++ clang
++ base-devel
++ git
++ subversion
++ lldb
++ gdb
++ wine
++ rust?
++ lld
++ vim (maybe installed)
++ ninja
++ cmake
 
 ##### Not as crucial
 
