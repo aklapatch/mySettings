@@ -226,6 +226,14 @@ Update grub (fedora) `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
 Add a PCI device in virt-manager.
 
+#### File sharing Linux host Windows Guest.
+
+Go to the folder that you want to share on your guest and go to its properties and share it to everyone. 
+
+Then get the IP address of your Windows guest from control panel. 
+
+Then use `smb://ip-of-guest/foldername` in your file manager on Linux to access that folder.
+
 ### Install broadcom-wl (Fedora 27/28) 
 
 `sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
