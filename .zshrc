@@ -1,3 +1,15 @@
+
+#set compiler
+export CC='zapcc'
+export CXX='zapcc'
+
+# global CFLAGS set lld as linkder
+export CFLAGS='-pipe -fuse-ld=lld'
+export CXXFLAGS='-pipe -fuse-ld=lld'
+
+#export tools dir addition to path
+export PATH="$PATH:/home/me/tools/zapcc/bin:/home/me/tools/julia/bin"
+
 ## Options section
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
