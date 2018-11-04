@@ -1,14 +1,10 @@
 
-#set compiler
-export CC='zapcc'
-export CXX='zapcc'
-
-# global CFLAGS set lld as linkder
-export CFLAGS='-pipe -fuse-ld=lld'
-export CXXFLAGS='-pipe -fuse-ld=lld'
+# global CFLAGS 
+export CFLAGS='-pipe'
+export CXXFLAGS='-pipe'
 
 #export tools dir addition to path
-export PATH="$PATH:/home/me/tools/zapcc/bin:/home/me/tools/julia/bin"
+export PATH="$PATH:/home/me/tools/zapcc/bin:/home/me/tools/julia/bin:/home/me/tools/p-t-suite"
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
@@ -30,8 +26,8 @@ zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
-HISTSIZE=1000
-SAVEHIST=500
+HISTSIZE=2000
+SAVEHIST=1000
 #export EDITOR=/usr/bin/nano
 #export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
