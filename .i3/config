@@ -21,6 +21,9 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # set up multi-monitor
 exec xrandr HDMI1 --right-of eDP1
 
+# activate 
+exec --no-startup-id compton --backend glx --glx-no-stencil --vsync-aggressive --sw-opti
+
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
