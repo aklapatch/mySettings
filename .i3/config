@@ -22,7 +22,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 exec xrandr HDMI1 --right-of eDP1
 
 # activate 
-exec --no-startup-id compton --backend glx --glx-no-stencil --vsync-aggressive --sw-opti
+exec compton -b --backend glx --glx-no-stencil --vsync-aggressive --sw-opti 
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -41,6 +41,8 @@ bindsym Mod1+i exec firefox
 
 # start dmenu (a program launcher)
 bindsym Mod1+d exec dmenu_run
+bindsym Mod4+d exec dmenu_run
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -94,8 +96,8 @@ bindsym Mod1+space focus mode_toggle
 bindsym Mod1+a focus parent
 
 # X86 keys binding
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master %5-
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master %5+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
 bindsym XF86AudioMute exec --no-startup-id $HOME/scripts/volume_control.py toggle
 
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
