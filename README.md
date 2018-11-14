@@ -62,6 +62,18 @@ and set `services.sync.prefs.X` with X as the service name to sync that setting.
 
 # Linux tweaks
 
+## Preferred keybinds
+
+ + Win + Enter starts terminal
+ + Win + arrow key tiles windows
+ + Win + q closes a program
+ + Win + d opens a menu to search for programs
+ + Win + i opens a web browser
+ + Win + f opens a file manager.
+ + Win + s can do another type of program search
+ + Win + 1,2,3 goes to workspace 1,2,3
+ + Win + Shift + 1,2,3 moves a window to workspace 1,2,3
+
 ## Openbox
 
 ### Changing keybinds
