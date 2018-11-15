@@ -1,3 +1,12 @@
+
+# Preferred linux spin
+
+Install xfce base, i3 desktop and i3 tools, and lxqt desktop.
+Manjaro is the distro base. Newer stuff than debian and not as many updates as raw Arch.
+Ubuntu beta or debian testing is the next best thing. 
+
+LxQT is more likely to break, hence the xfce base.
+
 # Programs to install
 
 ## Windows (chocolatey)
@@ -73,6 +82,7 @@ and set `services.sync.prefs.X` with X as the service name to sync that setting.
  + Win + s can do another type of program search
  + Win + 1,2,3 goes to workspace 1,2,3
  + Win + Shift + 1,2,3 moves a window to workspace 1,2,3
+ + Win + m Maximize the window
 
 ## Openbox
 
@@ -88,7 +98,7 @@ Download and install Obkey.
 
 ### Screen tearing
 
-Autostart compton (install it first) with the flags `--backend glx --paint-on-overlay --vsync opengl-swc`
+Autostart compton (install it first) with the flags `-b --backend glx --paint-on-overlay --vsync opengl-swc`
 
 ## File Open dialog is too big
 
