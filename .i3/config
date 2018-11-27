@@ -172,7 +172,7 @@ bar {
 }
 
 # AUTOSTART
-exec_always --no-startup-id feh --bg-fill $HOME/.config/wallpapers/simple.png
+exec_always --no-startup-id feh --bg-fill $HOME/Picture/SandersQuote.png
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk &
