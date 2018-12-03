@@ -174,7 +174,8 @@ bar {
 
 # AUTOSTART
 # set up multi-monitor
-exec xrandr HDMI1 --right-of eDP1
+exec xrandr --output HDMI1 --right-of eDP1  
+exec xrandr --output HDMI1 --mode 1920x1080
 
 exec_always --no-startup-id feh --bg-fill $HOME/Picture/SandersQuote.png
 
