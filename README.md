@@ -1,4 +1,3 @@
-
 # Preferred linux spin
 
 Install xfce base, i3 desktop and i3 tools, and lxqt desktop.
@@ -6,6 +5,9 @@ Manjaro is the distro base. Newer stuff than debian and not as many updates as r
 Ubuntu beta or debian testing is the next best thing. 
 
 LxQT is more likely to break, hence the xfce base.
+
+# Destkop Environment
+i3 with gnome polkit agent autostarted in the config file. MATE as a backup. 
 
 # Programs to install
 
@@ -70,6 +72,11 @@ and `browser.link.open_newwindow.restriction` = 0
 and set `services.sync.prefs.X` with X as the service name to sync that setting.
 
 # Linux tweaks
+
+## Correcting time
+
+Set time zone `ln -sf /usr/share/zoneinfo/America/Indianapolis /etc/localtime`
+Correct hardware clock `sudo ntpd -qg`
 
 ## Preferred keybinds
 
@@ -145,6 +152,10 @@ Section "InputClass"
 	Option "Ignore" "true"
 EndSection
 ```
+### add authentication to i3-wm
+
+Add this to your .i3/config `exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &`
+
 
 ### makepkg flags/settings (arch-specific)
 
@@ -314,6 +325,14 @@ Services you might not want to disable/mask (but I did anyway)
 
 
 ### Arch Specific 
+
+Stuff to remove from arch XFCE (pacman -Rs)
+ + orage
+ + parole
+ + mousepad (use geany instead)
+ + ristretto
+ + xfburn
+ + 
 
 Change makepkg flags (especially MAKEFLAGS) in `/etc/makepkg.conf`
 

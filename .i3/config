@@ -177,10 +177,12 @@ bar {
 exec xrandr --output HDMI1 --right-of eDP1  
 exec xrandr --output HDMI1 --mode 1920x1080
 
-exec_always --no-startup-id feh --bg-fill $HOME/Picture/SandersQuote.png
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk &
+
+# start polkit agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 exec --no-startup-id dunst &
 exec --no-startup-id xedgewarp -b
