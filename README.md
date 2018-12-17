@@ -1,14 +1,3 @@
-# Preferred linux spin
-
-Install xfce base, i3 desktop and i3 tools, and lxqt desktop.
-Manjaro is the distro base. Newer stuff than debian and not as many updates as raw Arch.
-Ubuntu beta or debian testing is the next best thing. 
-
-LxQT is more likely to break, hence the xfce base.
-
-# Destkop Environment
-i3 with gnome polkit agent autostarted in the config file. MATE as a backup. 
-
 # Programs to install
 
 ## Windows (chocolatey)
@@ -323,7 +312,6 @@ Services you might not want to disable/mask (but I did anyway)
 + systemd-modules-load.service (it was failing anyway)
 + mlocate-updatedb.service (you can remove by removing mlocate package)
 
-
 ### Arch Specific 
 
 Stuff to remove from arch XFCE (pacman -Rs)
@@ -332,7 +320,6 @@ Stuff to remove from arch XFCE (pacman -Rs)
  + mousepad (use geany instead)
  + ristretto
  + xfburn
- + 
 
 Change makepkg flags (especially MAKEFLAGS) in `/etc/makepkg.conf`
 
