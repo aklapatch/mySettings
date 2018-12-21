@@ -57,5 +57,3 @@ EndSection
 ## add authentication to i3-wm
 
 Add this to your .i3/config `exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &`
-
-
