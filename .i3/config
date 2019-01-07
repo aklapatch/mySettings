@@ -11,12 +11,12 @@
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono 9 
 
 # set mod key
 set $mod Mod4
@@ -175,20 +175,21 @@ bar {
 }
 
 # AUTOSTART
-# set up multi-monitor
-exec xrandr --output HDMI1 --right-of eDP1  
-exec xrandr --output HDMI1 --mode 1920x1080
-
-
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk &
 
 # start polkit agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+# set up multi-monitor
+exec_always --no-startup-id xrandr --output HDMI1 --right-of eDP1  
+exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1080
+
 exec --no-startup-id dunst &
 exec --no-startup-id xedgewarp -b
 exec --no-startup-id /usr/lib/polkit-gome/polkit-gnome-authentication-agent-1  &
 
-exec_always --no-startup-id "pgrep --exact xev || xev -root -event randr | grep --line-buffered ScreenChangeNotify | while read change; do pkill -RTMIN+4 i3blocks; done"
+exec dbus-launch
 
+exec_always --no-startup-id "pgrep --exact xev || xev -root -event randr | grep --line-buffered ScreenChangeNotify | while read change; do pkill -RTMIN+4 i3blocks; done"
+  
