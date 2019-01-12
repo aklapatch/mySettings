@@ -28,13 +28,13 @@ bindsym $mod+Shift+o exec i3-msg exit
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec lxterminal 
 
 # kill focused window
 bindsym $mod+q kill
 
 #start file manager
-bindsym $mod+f exec thunar
+bindsym $mod+f exec pcmanfm 
 
 #start firefox
 bindsym $mod+i exec firefox
@@ -177,6 +177,9 @@ bar {
 # AUTOSTART
 exec --no-startup-id nm-applet &
 exec --no-startup-id redshift-gtk &
+
+# turn off bell
+exec xset b off
 
 # start polkit agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
