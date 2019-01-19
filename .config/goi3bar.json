@@ -1,0 +1,88 @@
+{
+    "colors": {
+        "color_crit": "#FF0000",
+        "color_warn": "#FFA500",
+        "color_ok": "#00FF00",
+        "color_general": "#FFFFFF"
+    },
+    "interval": "1s",
+    "entries": [
+        {
+            "package": "memory",
+            "name": "memory",
+            "options": {
+                "interval": "2s",
+                "warn_threshold": 75,
+                "crit_threshold": 85
+            }
+		},
+        {
+            "package": "battery",
+            "name": "Bat",
+            "options": {
+                "interval": "5s",
+                "name": "BAT",
+                "identifier": "BAT0",
+                "warn_threshold": 25,
+                "crit_threshold": 15
+            }
+		,
+        {
+            "package": "disk_access",
+            "name": "disk_access",
+            "options": {
+                "interval": "1s",
+                "warn_threshold": 3146000,
+                "crit_threshold": 10490000,
+                "items": [
+                    {
+                        "name": "da",
+                        "device": "sda6"
+                    }
+                ]
+            }
+		},
+        
+        {
+            "package": "cpu_util",
+            "name": "cpu_util",
+            "options": {
+                "interval": "1s",
+                "warn_threshold": 75,
+                "crit_threshold": 90
+			}
+		},
+		 {
+            "package": "network",
+            "name": "network",
+            "options": {
+                "interval": "5s",
+                "config": {
+                    "devices": {
+						
+                        "wifi": {
+                            "name": "wifi",
+                            "identifier": "wlp1s0",
+                            "wireless": {
+                                "warn_threshold": 40,
+                                "crit_threshold": 20
+                            }
+                        }
+                    },
+                    "preference": [
+                        "wifi"
+					]
+                }
+            }
+		},
+		 {
+            "package": "clock",
+            "name": "localTime",
+            "options": {
+                "format": "%a %b-%d-%y %I:%M:%S",
+                "color": "#FFFFFF",
+                "location": ""
+            }
+		}
+    ]
+}
