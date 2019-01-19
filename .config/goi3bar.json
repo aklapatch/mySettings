@@ -7,6 +7,23 @@
     },
     "interval": "1s",
     "entries": [
+    
+            {
+            "package": "disk_access",
+            "name": "disk_access",
+            "options": {
+                "interval": "1s",
+                "warn_threshold": 3146000,
+                "crit_threshold": 10490000,
+                "items": [
+                    {
+                        "name": "da",
+                        "device": "sda6"
+                    }
+                ]
+            }
+		},
+    
         {
             "package": "memory",
             "name": "memory",
@@ -26,22 +43,24 @@
                 "warn_threshold": 25,
                 "crit_threshold": 15
             }
-		,
-        {
-            "package": "disk_access",
-            "name": "disk_access",
-            "options": {
-                "interval": "1s",
-                "warn_threshold": 3146000,
-                "crit_threshold": 10490000,
-                "items": [
-                    {
-                        "name": "da",
-                        "device": "sda6"
-                    }
-                ]
-            }
 		},
+		        {
+            "package": "disk_usage",
+            "name": "disk_usage",
+            "options": {
+                "interval": "5s",
+                "options": {
+                    "warn_threshold": 30,
+                    "crit_threshold": 10,
+                    "items": [
+                        {
+                            "name": "",
+                            "path": "/"
+                        }
+                    ]
+                }
+            }
+},
         
         {
             "package": "cpu_util",
