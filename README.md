@@ -67,6 +67,10 @@ and set `services.sync.prefs.X` with X as the service name to sync that setting.
 Set time zone `ln -sf /usr/share/zoneinfo/America/Indianapolis /etc/localtime`
 Correct hardware clock `sudo ntpd -qg`
 
+OR
+
+`sudo ntpdate 1.ro.pool.ntp.org` (with the time zone correctly set)
+
 ## Preferred keybinds
 
  + Win + Enter starts terminal

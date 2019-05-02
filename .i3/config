@@ -5,6 +5,7 @@
 # This config file uses keycodes (bindsym) and was written for the QWERTY
 # layout.
 #
+
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
 #
@@ -16,7 +17,7 @@
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:EmojiOne Color Regular 8 
+#font pango:EmojiOne Color Regular 8 
 
 # set terminal
 set $term xfce4-terminal
@@ -37,7 +38,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+q kill
 
 #start file manager
-bindsym $mod+f exec pcmanfm 
+bindsym $mod+f exec thunar
 
 #start web browser
 bindsym $mod+i exec firefox
@@ -176,7 +177,7 @@ bindsym $mod+r mode "resize"
 bar {
     font pango:EmojiOne Color Regular 8 
     position bottom
-    status_command i3status-rs /home/me/.config/config.toml
+    status_command i3status
     colors {
         separator #666666
         background #222222
@@ -190,9 +191,8 @@ bar {
 
 # AUTOSTART
 exec --no-startup-id nm-applet &
-exec --no-startup-id redshift-gtk &
 
-# turn off bell
+#turn off bell
 exec xset b off
 
 # start polkit agent
