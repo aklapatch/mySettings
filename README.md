@@ -56,7 +56,7 @@ Correct hardware clock `sudo ntpd -qg`
 
 OR
 
-`sudo ntpdate 1.ro.pool.ntp.org` (with the time zone correctly set)
+`sudo ntpdate 1.us.pool.ntp.org` (with the time zone correctly set)
 
 ## Preferred keybinds
 
