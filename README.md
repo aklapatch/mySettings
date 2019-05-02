@@ -30,22 +30,9 @@
 
 ## Linux
 
-+ eclipse
-+ visual studion code
-+ geany and geany plugins
-+ clang
-+ base-devel
-+ git
-+ subversion
-+ lldb
-+ gdb
-+ cppcheck
-+ wine
-+ rust?
-+ lld
-+ vim (maybe installed)
-+ ninja
-+ cmake
+Packges that I use should be dumped in text files that are scattered around in this direcory. (e.g. for Manjaro, its packages are in `manjaro-packages.txt`)
+
+I used `yay -Qqe` to generate that list. You can diff it and get the packages you need to install or remove.
 
 ##### Not as crucial
 
