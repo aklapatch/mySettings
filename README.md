@@ -51,12 +51,9 @@ and set `services.sync.prefs.X` with X as the service name to sync that setting.
 
 ## Correcting time
 
-Set time zone `ln -sf /usr/share/zoneinfo/America/Indianapolis /etc/localtime`
-Correct hardware clock `sudo ntpd -qg`
-
-OR
-
-`sudo ntpdate 1.us.pool.ntp.org` (with the time zone correctly set)
+Install ntp and do this `sudo timedatectl set-ntp true`
+and `sudo timedatectl set-timezone America/Indianapolis` (change the timezone as needed)
+and check with `timedatectl status`
 
 ## Preferred keybinds
 
@@ -145,7 +142,13 @@ Go to `/etc/makepkg.conf` and change `makeflags` to `-j4` and C and CXX flags to
 
 ### Lower boot time
 
-Disable services on startup. The fedora section has my personal list
+Disable services on startup. The fedora section has my personal list. My universal list is here:
++ bluetooth.service
++ ModemManager.service
++ lvm2-monitor.service
+also limit journal size by going here:
+`/etc/systemd/journald.conf`
+and changing the `SystemMaxUse` value.
 
 ### Speed up shutdown
 
