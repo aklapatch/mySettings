@@ -57,16 +57,15 @@ and check with `timedatectl status`
 
 ## Preferred keybinds
 
- + Win + Enter starts terminal
- + Win + arrow key tiles windows
- + Win + q closes a program
- + Win + d opens a menu to search for programs
- + Win + i opens a web browser
- + Win + f opens a file manager.
- + Win + s can do another type of program search
- + Win + 1,2,3 goes to workspace 1,2,3
- + Win + Shift + 1,2,3 moves a window to workspace 1,2,3
- + Win + m Maximize the window
+ + F11 : Starts a teminal
+ + Alt + arrow key : tiles windows in the appropriate direction
+ + F6  : closes a program
+ + Win : opens a menu to search for programs
+ + F10 : opens a web browser
+ + F8 : opens a file manager.
+ + F7 : switch tabs/windows inside a program
+ + F4 : Cycle windows (what Alt-Tab does on Windows)
+ + F3 : Maximize window
 
 ## Openbox
 
