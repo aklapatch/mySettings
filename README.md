@@ -30,10 +30,6 @@
 
 ## Linux
 
-Packges that I use should be dumped in text files that are scattered around in this direcory. (e.g. for Manjaro, its packages are in `manjaro-packages.txt`)
-
-I used `yay -Qqe` to generate that list. You can diff it and get the packages you need to install or remove.
-
 ##### Not as crucial
 
 + Photo editing : Gimp
@@ -60,12 +56,13 @@ and check with `timedatectl status`
  + F11 : Starts a teminal
  + Alt + arrow key : tiles windows in the appropriate direction
  + F6  : closes a program
- + Win : opens a menu to search for programs
+ + Win/Meta : opens a menu to search for programs
  + F10 : opens a web browser
  + F8 : opens a file manager.
  + F7 : switch tabs/windows inside a program
  + F4 : Cycle windows (what Alt-Tab does on Windows)
  + F3 : Maximize window
+ + F1 : Switch applications (not what Alt-Tab does)
 
 ## Openbox
 
