@@ -1,4 +1,11 @@
-(setq gc-cons-threshold 20000000) ; set garbage collection
+(setq gc-cons-threshold 20000000) ; set garbage
+
+; file reloading mode
+;should reload the file when it change
+(auto-revert-mode 1)
+
+ ; set copy/paste/cut buttons to C-c/C-v/etc
+(cua-mode t)
 
 ; load emacs MELPA
 ;; load emacs 24's package system. Add MELPA repository.

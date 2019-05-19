@@ -3,9 +3,9 @@
 # clear out old rpms
 echo
 echo "Deleting all rpms in current directory"
-rm -f *.rpm
+rm -fv *.rpm
 echo "Deleting old repo data"
-rm -rf repodata
+rm -rfv repodata
 
 # get rpm files from clearlinux dir if it exists
 shopt -s globstar
@@ -16,14 +16,21 @@ if [ -d "$RPMDIR" ]; then
   echo "Copying rpm files to this directory"  
   cp ~/clearlinux/packages/**/rpms/*.rpm .
 
+
+  REPONAME="mylocal"
   # delete the repo if it is there
-  echo "removing current repository data."
-  sudo mixin repo remove mylocalrepo
+  echo "Removing current repository data.(admin permissions)"
+  sudo mixin repo remove $REPONAME
+
+  # delete old bundles (you will have to regenerate
+  #echo "Deleting old bunldes, admin permissions are required"
+  #shopt -s extglob   
+  #sudo rm  -vrf !("/usr/share/mix/local-bundles/localrepo") 
 
   # add it back
   echo "Initializing repository"
   createrepo_c .
-  sudo mixin repo add mylocalrepo file://$HOME/localrepo/
+  sudo mixin repo add $REPONAME file://$HOME/localrepo/
 
   echo
   echo "Run 'sudo mixin package add PackageName --bundle BundleName' to add new packages"
