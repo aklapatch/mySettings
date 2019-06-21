@@ -1,5 +1,8 @@
 (setq gc-cons-threshold 20000000) ; set garbage
 
+; turn on column #
+(setq column-number-mode t)
+
 ; file reloading mode
 ;should reload the file when it change
 (auto-revert-mode 1)
