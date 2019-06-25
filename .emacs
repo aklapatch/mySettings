@@ -23,9 +23,14 @@
 ; This has to be after package-initialize
 (ac-config-default) ; autocomplete settings
 (global-auto-complete-mode t)
-(setq ac-auto-show-menu    0.2)
-(setq ac-delay             0.2)
-(setq ac-menu-height       10)
+(setq ac-auto-show-menu    0.0)
+(setq ac-delay             0.0)
+(setq ac-menu-height       5)
+(defun auto-complete-mode-maybe ()
+  "No maybe for you. Only AC!"
+  (unless (minibufferp (current-buffer))
+    (auto-complete-mode 1)))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
