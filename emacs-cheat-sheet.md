@@ -39,6 +39,8 @@ Emacs manual [here](https://www.gnu.org/software/emacs/manual).
 
 + `C-x C-c`: exit emacs, saving all buffers.
 
++ `M-x shell`: open a shell in emacs.
+
 ## Steps/Packages
 + Installing MELPA (package repo). Instructions are [here](http://ergoemacs.org/emacs/emacs_package_system.html). Remeber to restart emacs before refreshing the package list.
 
