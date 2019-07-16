@@ -1,4 +1,4 @@
-(setq gc-cons-threshold 20000000) ; set garbage
+(setq gc-cons-threshold 20000000) ; set garbage collection
 
 ; turn on column #
 (setq column-number-mode t)
@@ -16,9 +16,19 @@
   (require 'package)
   (add-to-list
    'package-archives
- '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
+ '("melpa" . "http://melpa.org/packages/") ; many packages won't show if using stable
    t))
 (package-initialize)
+
+; turn on rainbow identifiers
+(add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+(add-hook 'text-mode-hook 'rainbow-identifiers-mode)
+
+
+; turn on rainbow delimiters
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'text-mode-hook 'rainbow-delimiters-mode)
+
 
 ; This has to be after package-initialize
 (ac-config-default) ; autocomplete settings
@@ -26,6 +36,7 @@
 (setq ac-auto-show-menu    0.0)
 (setq ac-delay             0.0)
 (setq ac-menu-height       5)
+(setq ac-show-menu-immediately-on-auto-complete t)
 (defun auto-complete-mode-maybe ()
   "No maybe for you. Only AC!"
   (unless (minibufferp (current-buffer))
@@ -44,7 +55,9 @@
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (wheatgrass)))
  '(global-display-line-numbers-mode t)
- '(package-selected-packages (quote (auto-complete)))
+ '(package-selected-packages
+   (quote
+    (rainbow-delimiters rainbow-identifiers zig-mode auto-complete)))
  '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
