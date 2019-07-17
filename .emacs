@@ -4,6 +4,24 @@
  ;rainbow delmiters
  ;auto complete
 
+; nixos recommended settings
+(require 'package)
+
+;; optional. makes unpure packages archives unavailable
+(setq package-archives nil)
+
+(setq package-enable-at-startup nil)
+
+; load emacs MELPA
+;; load emacs 24's package system. Add MELPA repository.
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+ '("melpa" . "http://melpa.org/packages/") ; many packages won't show if using stable
+   t))
+(package-initialize)
+
 ; garbage collector tuning
 (defun my-minibuffer-setup-hook ()
   (setq gc-cons-threshold most-positive-fixnum))
@@ -28,16 +46,6 @@
 
  ; set copy/paste/cut buttons to C-c/C-v/etc
 (cua-mode t)
-
-; load emacs MELPA
-;; load emacs 24's package system. Add MELPA repository.
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list
-   'package-archives
- '("melpa" . "http://melpa.org/packages/") ; many packages won't show if using stable
-   t))
-(package-initialize)
 
 ; turn on rainbow identifiers
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
