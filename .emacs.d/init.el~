@@ -15,10 +15,9 @@
 
 ; list the packages you want
 (setq package-list '(rainbow-delimiters
-		     rainbow-identifiers
-		     auto-complete
-		     async
-		     real-auto-save))
+					rainbow-identifiers
+					auto-complete
+					async ))
 
 ; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
@@ -52,11 +51,6 @@
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
 
-
-; ================= real auto save settings =================
-(require 'real-auto-save)
-(add-hook 'prog-mode-hook 'real-auto-save-mode)
-(setq real-auto-save-interval 5) ; seconds
 
 ;keep the startup screen from coming up ========================
 (setq inhibit-startup-screen t)
