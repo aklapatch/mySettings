@@ -7,6 +7,7 @@
 
 ; NO TABS + tab settings ====================================================
 (setq-default indent-tabs-mode nil)
+(setq standard-indent 4)
 (setq tab-width 4) ; or any other preferred value
     (defvaralias 'c-basic-offset 'tab-width)
     (defvaralias 'cperl-indent-level 'tab-width)
@@ -81,8 +82,8 @@
 (add-hook 'text-mode-hook 'rainbow-delimiters-mode)
 
 
-; This has to be after package-initialize ===========================
-(ac-config-default) ; autocomplete settings
+; This has to be after package-initialize autocomplete settings ================
+(ac-config-default) ; 
 (global-auto-complete-mode t)
 (setq ac-auto-show-menu    0.0)
 (setq ac-delay             0.0)
