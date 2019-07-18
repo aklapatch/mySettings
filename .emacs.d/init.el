@@ -9,8 +9,8 @@
 (setq-default indent-tabs-mode nil)
 (setq standard-indent 4)
 (setq tab-width 4) ; or any other preferred value
-    (defvaralias 'c-basic-offset 'tab-width)
-    (defvaralias 'cperl-indent-level 'tab-width)
+(setq c-basic-offset tab-width)
+(setq cperl-indent-level tab-width) 
 
 ;======================Installing missing packages================================
 
@@ -19,14 +19,15 @@
 		     rainbow-identifiers
 		     auto-complete
 		     async
-		     real-auto-save))
+		     real-auto-save
+                     highlight-indent-guides))
 
 ; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-						 ("melpa" . "https://melpa.org/packages/")
-						 ))
+			 ("melpa" . "https://melpa.org/packages/")
+			 ))
 
 ; activate all the packages (in particular autoloads)
 (package-initialize)
@@ -53,11 +54,17 @@
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
 
+; highlight-indent-guides-settings =============================================
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-method 'fill)
+(setq highlight-indent-guides-auto-odd-face-perc 15)
+(setq highlight-indent-guides-auto-even-face-perc 30)
+(setq highlight-indent-guides-auto-character-face-perc 20)
 
 ; ================= real auto save settings =================
 (require 'real-auto-save)
 (add-hook 'prog-mode-hook 'real-auto-save-mode)
-(setq real-auto-save-interval 5) ; seconds
+(setq real-auto-save-interval 3) ; seconds
 
 ;keep the startup screen from coming up ========================
 (setq inhibit-startup-screen t)

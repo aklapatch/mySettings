@@ -14,6 +14,7 @@
 
 ## MSYS2
 
++ fish shell
 + geany and geany plugins
 + clang
 + base-devel
@@ -29,6 +30,8 @@
 + cppcheck
 
 ## Linux
++ fish shell
++ emacs
 
 ##### Not as crucial
 

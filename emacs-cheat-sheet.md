@@ -33,7 +33,9 @@ Emacs manual [here](https://www.gnu.org/software/emacs/manual).
 
 + `C-x C-b`: List the existing buffers.
 
-+ `C-s`: Search for text
++ `C-s`: Search for text from top to bottom. (press it again to go to the next matching text entry)
+
++ `C-r`: Search for text, but from bottom to top.
 
 + `C-x 4 0`: kill window and buffer.
 
