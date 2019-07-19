@@ -7,15 +7,15 @@
 
 ; NO TABS + tab settings ====================================================
 (setq-default indent-tabs-mode nil)
-(setq standard-indent 2) ; standard indent
-(setq tab-width 2) ; or any other preferred value
+(setq standard-indent 4) ; standard indent
+(setq tab-width 4) ; or any other preferred value
 (setq c-basic-offset tab-width) ; c mode indent
 (setq cperl-indent-level tab-width) ; perl mode indent
 
 (add-hook 'text-mode-hook ; text mode indentation
           '(lambda ()
              (setq indent-tabs-mode nil)
-             (setq tab-width 2)
+             (setq tab-width 4)
              (setq indent-line-function (quote insert-tab))))
 
 ;======================Installing missing packages================================
