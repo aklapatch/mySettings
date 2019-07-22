@@ -7,16 +7,15 @@
 
 ; NO TABS + tab settings ====================================================
 (setq-default indent-tabs-mode nil)
-(setq standard-indent 4) ; standard indent
-(setq tab-width 4) ; or any other preferred value
+(setq standard-indent 2) ; standard indent
+(setq tab-width 2) ; or any other preferred value
 (setq c-basic-offset tab-width) ; c mode indent
 (setq cperl-indent-level tab-width) ; perl mode indent
 
 (add-hook 'text-mode-hook ; text mode indentation
           '(lambda ()
              (setq indent-tabs-mode nil)
-             (setq tab-width 4)
-             (setq indent-line-function (quote insert-tab))))
+             (setq tab-width 2)))
 
 ;======================Installing missing packages================================
 
@@ -62,9 +61,9 @@
 
 ; highlight-indent-guides-settings =============================================
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-(setq highlight-indent-guides-method 'fill)
-(setq highlight-indent-guides-auto-odd-face-perc 15)
-(setq highlight-indent-guides-auto-even-face-perc 30)
+(setq highlight-indent-guides-method 'column)
+(setq highlight-indent-guides-auto-odd-face-perc 10)
+(setq highlight-indent-guides-auto-even-face-perc 20)
 (setq highlight-indent-guides-auto-character-face-perc 20)
 
 ; ================= real auto save settings =================
@@ -119,6 +118,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (wheatgrass)))
  '(global-display-line-numbers-mode t)
