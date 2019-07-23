@@ -3,7 +3,13 @@ My journey through configuring emacs to my liking.
 
 ## Notes
 + The config file (.emacs)  for windows is in `C:\Users\username\AppData\Roaming\`
-+
+
+## packages
++ spacemacs
++ treemacs
++ real-auto-save
++ highlight-indent-guides
++ centaur-tabs
 
 ## Useful commands/keybinds
 Emacs manual [here](https://www.gnu.org/software/emacs/manual).
@@ -53,6 +59,10 @@ Emacs manual [here](https://www.gnu.org/software/emacs/manual).
 + `C-x k buffername`: kills the buffer named `buffername`
 
 + `C-x 4 0`: kill window and buffer.
+
+### packages/spacemacs
++ `C-x t t` initialize treemacs (a side window for seeing files.
+
 
 ## Steps/Packages
 + Installing MELPA (package repo). Instructions are [here](http://ergoemacs.org/emacs/emacs_package_system.html). Remeber to restart emacs before refreshing the package list.
