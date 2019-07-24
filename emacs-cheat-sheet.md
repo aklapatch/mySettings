@@ -58,6 +58,12 @@ Emacs manual [here](https://www.gnu.org/software/emacs/manual).
 ### open side file manager
 + `C-x n`: initialize neotree as a sidebar file manager.
 
+### ace-jump-mode
++ `C-c SPC` enter ace-jump-mode
++ `C-c SPC` ace-jump-word-mode
++ `C-u C-c SPC` ace-jump-char-mode
++ `C-u C-u C-c SPC` ace-jump-line-mode
+
 ### org mode
 https://orgmode.org/org.html#Summary
 
