@@ -32,6 +32,8 @@ Emacs manual [here](https://www.gnu.org/software/emacs/manual).
 
 + `M-x shell`: open a shell in emacs.
 
++ `C-x C-d`: open a directory to list files
+
 ### Moving the cursor
 + `C-a`, `C-e`: Move to beginning and end of the line, respectively.
 
@@ -60,8 +62,17 @@ Emacs manual [here](https://www.gnu.org/software/emacs/manual).
 
 + `C-x 4 0`: kill window and buffer.
 
-### packages/spacemacs
-+ `C-x t t` initialize treemacs (a side window for seeing files.
+### open side file manager
++ `C-x n`: initialize neotree as a sidebar file manager.
+
+### org mode
+https://orgmode.org/org.html#Summary
+
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
+
 
 
 ## Steps/Packages

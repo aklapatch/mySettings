@@ -1,4 +1,9 @@
-; require use-package
+
+;; Make startup faster by reducing the frequency of garbage
+;; collection.  The default is 800 kilobytes.  Measured in bytes.
+(setq gc-cons-threshold 100000000)                                      ;
+
+;;require use-package
 ;;{{{ Set up package and use-package
 
 (require 'package)
@@ -17,18 +22,6 @@
 ;;}}}
 
 ;======================Installing missing packages================================
-
-; list the packages you want
-(setq package-list '(rainbow-delimiters
-		     rainbow-identifiers
-		     auto-complete
-		     async
-		     real-auto-save
-             highlight-indent-guides
-             treemacs
-             centaur-tabs
-             use-package))
-
 
 ; NO TABS + tab settings ====================================================
 (setq-default indent-tabs-mode nil)
@@ -56,13 +49,60 @@
 ;; sunrise commander settings =====================
 ;;(use-package sunrise-commander)
 
-;; neotree settings =====================================================
-(use-package neotree)
-(global-set-key (kbd "C-x C-n") 'neotree-toggle)
+;; find-file-in-project settings ==============================
 
-;; direx settings ====================================================
-(use-package direx)
-(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
+;; magit settings ============================================
+(use-package magit
+  :defer t)
+
+;; dash settings ==============================================
+(use-package dash
+  :defer t)
+
+;; flymake settings ======================================
+
+
+;; electric pair settings =================================================
+(add-hook 'prog-mode-hook 'electric-pair-mode)
+
+;; ivy settings ===========================================
+(use-package counsel)
+(use-package ivy)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+;; enable this if you want `swiper' to use it
+;; (setq search-default-mode #'char-fold-to-regexp)
+(global-set-key "\C-s" 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "<f6>") 'ivy-resume)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-find-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+(global-set-key (kbd "C-c g") 'counsel-git)
+(global-set-key (kbd "C-c j") 'counsel-git-grep)
+(global-set-key (kbd "C-c k") 'counsel-ag)
+(global-set-key (kbd "C-x l") 'counsel-locate)
+(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+
+;; org mode settings ==========================================
+(use-package org)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+(setq org-log-done t)
+
+
+;; neotree settings =====================================================
+(use-package neotree
+  :defer t
+  :bind
+  ("C-x n" . neotree-toggle))
 
 ; centaur tabs settings ========================================================
 (use-package centaur-tabs
@@ -70,23 +110,26 @@
   :config
   (centaur-tabs-mode t)
   :bind
-  ("C-<prior>" . centaur-tabs-backward)
-  ("C-<next>" . centaur-tabs-forward))
+  ("C-j" . centaur-tabs-backward)
+  ("C-;" . centaur-tabs-forward))
 
 ;; highlight-indent-guides-settings =============================================
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-(setq highlight-indent-guides-method 'column)
-(setq highlight-indent-guides-auto-odd-face-perc 10)
-(setq highlight-indent-guides-auto-even-face-perc 20)
-(setq highlight-indent-guides-auto-character-face-perc 20)
+(use-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :init
+  (setq highlight-indent-guides-method 'column)
+  (setq highlight-indent-guides-auto-odd-face-perc 10)
+  (setq highlight-indent-guides-auto-even-face-perc 20)
+  (setq highlight-indent-guides-auto-character-face-perc 20)
+  )
 
 ; ================= real auto save settings =================
-(require 'real-auto-save)
-(add-hook 'prog-mode-hook 'real-auto-save-mode)
-(add-hook 'text-mode-hook 'real-auto-save-mode)
-(setq real-auto-save-interval 2) ; seconds
+(add-hook 'prog-mode-hook 'auto-save-visited-mode)
+(add-hook 'text-mode-hook 'auto-save-visited-mode)
+(setq auto-save-visited-interval 2) ; seconds
 
 ;keep the startup screen from coming up ========================
+
 (setq inhibit-startup-screen t)
 
 ; turn on column #'s ======================================
@@ -99,15 +142,13 @@
  ; set copy/paste/cut buttons to C-c/C-v/etc ==========================
 (cua-mode t)
 
-; turn on rainbow identifiers ===========================
-(add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
-(add-hook 'text-mode-hook 'rainbow-identifiers-mode)
+;; turn on rainbow identifiers ===========================
+(use-package rainbow-identifiers
+  :hook ((prog-mode text-mode) . rainbow-identifiers-mode))
 
-
-; turn on rainbow delimiters =========================================
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'text-mode-hook 'rainbow-delimiters-mode)
-
+;; turn on rainbow delimiters =========================================
+(use-package rainbow-identifiers
+  :hook ((prog-mode text-mode) . rainbow-delimiters-mode))
 
 ; This has to be after package-initialize autocomplete settings ================
 (ac-config-default) ; 
@@ -120,6 +161,9 @@
   "No maybe for you. Only AC!"
   (unless (minibufferp (current-buffer))
     (auto-complete-mode 1)))
+
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold (* 2 1000 1000))
 
 ; custom set variables ===============================================================
 
@@ -134,11 +178,14 @@
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (wheatgrass)))
+ '(custom-enabled-themes (quote (panda)))
+ '(custom-safe-themes
+   (quote
+    ("68bf77811b94a9d877f9c974c19bafe5b67b53ed82baf96db79518564177c0fb" default)))
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
    (quote
-    (centaur-tabs treemacs real-auto-save rainbow-delimiters rainbow-identifiers auto-complete)))
+    (counsel ivy org-projectile esup magit-svn magit-annex magit-diff-flycheck panda-theme zig-mode centaur-tabs treemacs real-auto-save rainbow-delimiters rainbow-identifiers auto-complete)))
  '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
