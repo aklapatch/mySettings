@@ -4,13 +4,6 @@ My journey through configuring emacs to my liking.
 ## Notes
 + The config file (.emacs)  for windows is in `C:\Users\username\AppData\Roaming\`
 
-## packages
-+ spacemacs
-+ treemacs
-+ real-auto-save
-+ highlight-indent-guides
-+ centaur-tabs
-
 ## Useful commands/keybinds
 Emacs manual [here](https://www.gnu.org/software/emacs/manual).
 
@@ -72,8 +65,20 @@ https://orgmode.org/org.html#Summary
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
+### Neotree key bindings
 
-
++ `n` next line, `p` previous line
++ `SPC` or `RET` or `TAB` Open current item if it is a file. Fold/Unfold current item if it is a directory.
++ `U` Go up a directory
++ `g` Refresh
++ `A` Maximize/Minimize the NeoTree Window
++ `H` Toggle display hidden files
++ `O` Recursively open a directory
++ `C-c C-n` Create a file or create a directory if filename ends with a ‘/’
++ `C-c C-d` Delete a file or a directory.
++ `C-c C-r` Rename a file or a directory.
++ `C-c C-c` Change the root directory.
++ `C-c C-p` Copy a file or a directory.
 
 ## Steps/Packages
 + Installing MELPA (package repo). Instructions are [here](http://ergoemacs.org/emacs/emacs_package_system.html). Remeber to restart emacs before refreshing the package list.
