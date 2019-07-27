@@ -27,6 +27,15 @@ Emacs manual [here](https://www.gnu.org/software/emacs/manual).
 
 + `C-x C-d`: open a directory to list files
 
+### Magit
+    + `M-x magit-status` to get into a git status buffer
+ ##### In the git status buffer:
+   +  `s` to stage files
+    + `c c` to commit (type the message then C-c C-c to actually commit)
+    + `b b` to switch to another branch
+   + `P u` to do a git push
+   + `F u` to do a git pull
+
 ### Moving the cursor
 + `C-a`, `C-e`: Move to beginning and end of the line, respectively.
 
