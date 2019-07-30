@@ -67,6 +67,10 @@ Emacs manual [here](https://www.gnu.org/software/emacs/manual).
 
 + `C-x 4 0`: kill window and buffer.
 
+### Company
+
++ `M-p` and `M-n`: selects another completion item.
+
 ### open side file manager
 + `C-x n`: initialize neotree as a sidebar file manager.
 
