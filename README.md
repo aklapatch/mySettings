@@ -1,51 +1,5 @@
 # Programs to install
 
-## Windows (chocolatey)
-
-+ 360 total security (360ts for chocolatey)
-+ malwarebytes
-+ eclipse
-+ Visual Studio Code
-+ git
-+ subversion
-+ chrome
-+ firefox
-+ notepad++
-
-## MSYS2
-
-+ fish shell
-+ geany and geany plugins
-+ clang
-+ base-devel
-+ git
-+ subversion
-+ python (both of them)
-+ lldb
-+ gdb
-+ lld
-+ vim (usually installed)
-+ ninja
-+ cmake
-+ cppcheck
-
-## Linux
-+ fish shell
-+ emacs
-
-##### Not as crucial
-
-+ Photo editing : Gimp
-+ Video editing : Shotcut
-+ Audio editing : Audacity
-
-# Firefox
-
-go to  `about:config` and set
-`browser.link.open_newwindow` = 3
-and `browser.link.open_newwindow.restriction` = 0
-and set `services.sync.prefs.X` with X as the service name to sync that setting.
-
 # Linux tweaks
 
 ## Correcting time
@@ -55,29 +9,7 @@ and `sudo timedatectl set-timezone America/Indianapolis` (change the timezone as
 and check with `timedatectl status`
 
 ## Preferred keybinds
-
- + F11 : Starts a teminal
- + Alt + arrow key : tiles windows in the appropriate direction
- + F6  : closes a program
- + Win/Meta : opens a menu to search for programs
- + F10 : opens a web browser
- + F8 : opens a file manager.
- + F7 : switch tabs/windows inside a program
- + F4 : Cycle windows (what Alt-Tab does on Windows)
- + F3 : Maximize window
- + F1 : Switch applications (not what Alt-Tab does)
-
-## Openbox
-
-### Changing keybinds
-
-Change `.config/openbox/lxqt-rc.xml`
-
-Run `openbox --reconfigure` to apply settings.
-
-OR 
-
-Download and install Obkey.
+Look at the i3/config file and infer from that.
 
 ### Screen tearing
 
@@ -87,7 +19,7 @@ Autostart compton (install it first) with the flags `-b --backend glx --paint-on
 
 Change the `GeometryWidth` and `Geom:etryHeight` entries in `.config/gtk-2.0/gtkfilechooser.ini`
 
-## Changing gtk themes on LXQt
+## Changing gtk themes on LXQt/i3
 
 Install lxappearance and use it. (lightest option I found that works)
 
@@ -131,7 +63,6 @@ EndSection
 ### add authentication to i3-wm
 
 Add this to your .i3/config `exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &`
-
 
 ### makepkg flags/settings (arch-specific)
 

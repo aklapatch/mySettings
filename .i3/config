@@ -98,12 +98,12 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # X86 keys binding
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  +5% 
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% 
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  +5% 
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+#bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+#bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -174,20 +174,6 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    font pango:EmojiOne Color Regular 8 
-    position bottom
-    status_command i3status
-    colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
-}
 
 # AUTOSTART
 exec --no-startup-id nm-applet &
@@ -196,18 +182,23 @@ exec --no-startup-id nm-applet &
 exec xset b off
 
 # start polkit agent
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+exec dbus-launch
 
 # set up multi-monitor
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 1366x0 --rotate normal --output VIRTUAL1 --off --output eDP1 --primary --mode 1366x768 --pos 0x0 --rotate normal  
+exec_always --no-startup-id xfsettingsd --sm-client-disable &
 
-exec --no-startup-id dunst &
-exec --no-startup-id xedgewarp -b
-exec --no-startup-id /usr/lib/polkit-gome/polkit-gnome-authentication-agent-1  &
+exec_always --no-startup-id xfce4-volumed-pulse &
+
+exec_always --no-startup-id xfce4-power-manager --sm-client-disable &
+exec_always --no-startup-id xfce4-panel -d --sm-client-disable &
+#exec --no-startup-id xedgewarp -b
+#exec --no-startup-id /usr/lib/polkit-gome/polkit-gnome-authentication-agent-1  &
 # set background color
 exec --no-startup-id xsetroot -solid "#333333"
 
-exec dbus-launch
 
 exec_always --no-startup-id "pgrep --exact xev || xev -root -event randr | grep --line-buffered ScreenChangeNotify | while read change; do pkill -RTMIN+4 i3blocks; done"
   
