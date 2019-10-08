@@ -1,7 +1,7 @@
-# Programs to install
-
 # Linux tweaks
 
+## desktop environment
+i3 + some xfce4 addons (panel, volumed-pulse, power-manager)
 ## Correcting time
 
 Install ntp and do this `sudo timedatectl set-ntp true`
