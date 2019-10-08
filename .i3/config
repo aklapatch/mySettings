@@ -194,6 +194,7 @@ exec_always --no-startup-id xfce4-volumed-pulse &
 
 exec_always --no-startup-id xfce4-power-manager --sm-client-disable &
 exec_always --no-startup-id xfce4-panel -d --sm-client-disable &
+
 #exec --no-startup-id xedgewarp -b
 #exec --no-startup-id /usr/lib/polkit-gome/polkit-gnome-authentication-agent-1  &
 # set background color
