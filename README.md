@@ -5,21 +5,14 @@ Pick the distro/software/desktop envrionment/programming language that needs the
 
 
 ## My preferred setup and why
-Manjaro with i3wm and sevarl addons that are oriented toward usability.
+Manjaro with i3wm and several addons that are oriented toward usability.
 
 ### Why
 Manjaro is much easier to install compared to Arch, but still has newer packages than most other distros. It also has access to the AUR, which I miss every time I go to another distro.
 
-The i3 desktop environment is minimal, and has all the keybinds and tools to be productive with windows. It is too minimal though. Authentication does not work until you start polkit in the background, you have to bind keys to change screen brightness and volume, and you have to run compton to remove screen tearing.
-I add the following things to i3 to make it more usable for me.
-- xfce4-panel (has more options than i3status)
-- polkit-gnome-authentication-agent (for adjustment)
-- nm-applet
-- dbus-launch
-- xfce4-volume-pulse (keybinds for volume adjustment)
-- xfce4-power-manager (keybinds for screen brightness)
-- xfsettingsd 
-- compton (prevent screen tearing)
+The i3 desktop environment is minimal, and has all the keybinds and tools to be productive with windows. It is too minimal though. Authentication does not work until you start polkit in the background, you have to bind keys to change screen brightness and volume, and you still have screen tearing
+
+Look at `.i3/config` if you want to see what I added. 
 
 ## Correcting time
 
