@@ -181,25 +181,29 @@ exec --no-startup-id nm-applet &
 #turn off bell
 exec xset b off
 
-# start polkit agent
-#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
+# start dbus just in case something else needs it
 exec dbus-launch
+
+# start polkit agent for authentication
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 
 # set up multi-monitor
 exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 1366x0 --rotate normal --output VIRTUAL1 --off --output eDP1 --primary --mode 1366x768 --pos 0x0 --rotate normal  
+
+# xfce additions
 exec_always --no-startup-id xfsettingsd --sm-client-disable &
-
 exec_always --no-startup-id xfce4-volumed-pulse &
-
 exec_always --no-startup-id xfce4-power-manager --sm-client-disable &
 exec_always --no-startup-id xfce4-panel -d --sm-client-disable &
 
 #exec --no-startup-id xedgewarp -b
-#exec --no-startup-id /usr/lib/polkit-gome/polkit-gnome-authentication-agent-1  &
+#
 # set background color
 exec --no-startup-id xsetroot -solid "#333333"
 
+# remove screen tearing (does not work on intel graphics
+#exec --no-startup-id compton -b --backend glx --glx-no-stencil --vsync & 
 
 exec_always --no-startup-id "pgrep --exact xev || xev -root -event randr | grep --line-buffered ScreenChangeNotify | while read change; do pkill -RTMIN+4 i3blocks; done"
   
