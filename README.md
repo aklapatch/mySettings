@@ -1,8 +1,7 @@
 # Linux tweaks
 
-## General selection philosophy
+## General distro selection philosophy
 Pick the distro/software/desktop envrionment/programming language that needs the least amount of work to get it the way you like it.
-
 
 ## My preferred setup and why
 Manjaro with i3wm and several addons that are oriented toward usability.
@@ -10,9 +9,21 @@ Manjaro with i3wm and several addons that are oriented toward usability.
 ### Why
 Manjaro is much easier to install compared to Arch, but still has newer packages than most other distros. It also has access to the AUR, which I miss every time I go to another distro.
 
-The i3 desktop environment is minimal, and has all the keybinds and tools to be productive with windows. It is too minimal though. Authentication does not work until you start polkit in the background, you have to bind keys to change screen brightness and volume, and you still have screen tearing
+The i3 desktop environment is minimal, and has all the keybinds and tools to be productive. It is too minimal though. User authentication does not work until you start polkit in the background, you have to bind keys to change screen brightness and volume, and you still have screen tearing
 
 Look at `.i3/config` if you want to see what I added. 
+
+## Removing mouse acceleration
+Copy and paste this into a file here: `/etc/X11/xorg.conf.d/50-mouse-acceleration.conf`
+```
+Section "InputClass"
+    Identifier "My Mouse"
+    MatchIsPointer "yes"
+    Option "AccelerationProfile" "-1"
+    Option "AccelerationScheme" "none"
+    Option "AccelSpeed" "-1"
+EndSection
+```
 
 ## Correcting time
 
@@ -29,7 +40,7 @@ Autostart compton (install it first) with the flags `-b --backend glx --paint-on
 
 ## File Open dialog is too big
 
-Change the `GeometryWidth` and `Geom:etryHeight` entries in `.config/gtk-2.0/gtkfilechooser.ini`
+Change the `GeometryWidth` and `GeometryHeight` entries in `.config/gtk-2.0/gtkfilechooser.ini`
 
 ## Changing gtk themes on LXQt/i3
 
