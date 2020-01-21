@@ -193,7 +193,7 @@ exec_always --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 1366x0 
 
 # xfce additions
 exec_always --no-startup-id xfsettingsd --sm-client-disable &
-exec_always --no-startup-id xfce4-volumed-pulse &
+#exec_always --no-startup-id xfce4-volumed-pulse &
 exec_always --no-startup-id xfce4-power-manager --sm-client-disable &
 exec_always --no-startup-id xfce4-panel -d --sm-client-disable &
 
